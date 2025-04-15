@@ -1,0 +1,30 @@
+server import { getUser } from "#src/api";
+
+<const/userId = $global.params.id>
+<div class="user-view">
+  <h1>User: ${userId}</h1>
+  <await|user|=getUser(userId)>
+    <ul class="meta">
+      <li>
+        <span class="label">Created: </span>
+         ${user.created}
+      </li>
+      <li>
+        <span class="label">Karma: </span>
+         ${user.karma}
+      </li>
+      <if=user.about>
+        <li class="about">$!{user.about}</li>
+      </if>
+    </ul>
+  </await>
+  <p class="links">
+    <a href=`https://news.ycombinator.com/submitted?id=${userId}`>
+      submissions
+    </a>
+      |
+    <a href=`https://news.ycombinator.com/threads?id=${userId}`>
+      comments
+    </a>
+  </p>
+</div>

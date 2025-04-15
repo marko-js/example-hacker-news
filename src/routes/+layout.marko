@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Marko Hackernews">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+    <title>Marko - Hacker News</title>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="inner">
+        <a href="/">
+          <strong>HN</strong>
+        </a>
+        <a href="/?stories=new">
+          <strong>New</strong>
+        </a>
+        <a href="/?stories=show">
+          <strong>Show</strong>
+        </a>
+        <a href="/?stories=ask">
+          <strong>Ask</strong>
+        </a>
+        <a href="/?stories=job">
+          <strong>Jobs</strong>
+        </a>
+        <a
+          href="https://markojs.com"
+          target="_blank"
+          rel="noreferrer"
+          class="github"
+        >
+          Built with Marko
+        </a>
+      </nav>
+    </header>
+
+    <${input.content}/>
+  </body>
+</html>
