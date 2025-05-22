@@ -1,32 +1,34 @@
-server import { getStory } from "#src/api";
+import { getStory, type Story } from "#src/api";
 
 <main class="item-view">
-  <await|story|=getStory(+$global.params.id)>
-    <header class="item-view-header">
-      <h1>
-        <a href=story.url target="_blank">
-          ${story.title}
-        </a>
-      </h1>
-      <p class="meta">
-        ${story.points} points | by
-        <a href=`/user/${story.user}`>
-          ${story.user}
-        </a>
-        ${" "} ${story.time_ago}
-      </p>
-    </header>
-    <section class="item-view-comments">
-      <p class="item-view-comments-header">
-        ${story.comments_count
-          ? `${story.comments_count} comments`
-          : "No comments yet."}
-      </p>
-      <ul class="comment-children">
-        <for|comment| of=story.comments>
-          <comment comment=comment/>
-        </for>
-      </ul>
-    </section>
+  <await(getStory(+$global.params.id))>
+    <@then|story|>
+      <header class="item-view-header">
+        <h1>
+          <a href=story.url target="_blank">
+            ${story.title}
+          </a>
+        </h1>
+        <p class="meta">
+          ${story.points} points | by
+          <a href=`/user/${story.user}`>
+            ${story.user}
+          </a>
+          ${" "} ${story.time_ago}
+        </p>
+      </header>
+      <section class="item-view-comments">
+        <p class="item-view-comments-header">
+          ${story.comments_count
+            ? `${story.comments_count} comments`
+            : "No comments yet."}
+        </p>
+        <ul class="comment-children">
+          <for|comment| of=story.comments>
+            <comment comment=comment/>
+          </for>
+        </ul>
+      </section>
+    </@then>
   </await>
 </main>

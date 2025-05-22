@@ -3,7 +3,7 @@ export interface Input {
   story: Story | PartialStory;
 }
 
-<const/{ story }=input>
+$ const { story } = input;
 
 <li class="news-item">
   <span class="score">
@@ -11,7 +11,7 @@ export interface Input {
   </span>
 
   <span class="title">
-    <if=story.url>
+    <if(story.url)>
       <a href=story.url target="_blank" rel="noreferrer">
         ${story.title}
       </a>
@@ -26,7 +26,7 @@ export interface Input {
   <br>
 
   <span class="meta">
-    <if=story.type === "job">
+    <if(story.type === "job")>
       <a href=`/story/${story.id}`>
         ${story.time_ago}
       </a>
@@ -43,7 +43,7 @@ export interface Input {
     </else>
   </span>
 
-  <if=story.type !== "link">
+  <if(story.type !== "link")>
     <span class="label">
        ${story.type}
     </span>
