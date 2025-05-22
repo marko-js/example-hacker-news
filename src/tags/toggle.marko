@@ -1,0 +1,16 @@
+export interface Input {
+  content: Marko.Body;
+  closedMessage: string;
+  openMessage: string;
+}
+
+<let/open=false>
+
+<div class=["toggle", { open }]>
+  <a role="button" onClick() { open = !open }>
+    ${open ? "[-]" : "[+] comments collapsed"}
+  </a>
+</div>
+<ul class="comment-children" style={ display: open ? undefined : "none" }>
+  <${input.content}/>
+</ul>

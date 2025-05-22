@@ -18,17 +18,10 @@ export interface Input {
   </div>
 
   <if=comment.comments.length>
-    <let/open=true>
-
-    <div class=["toggle", { open }]>
-      <a role="button" onClick() { open = !open }>
-        ${open ? "[-]" : "[+] comments collapsed"}
-      </a>
-    </div>
-    <ul class="comment-children" style={ display: open ? undefined : "none" }>
+    <toggle closedMessage="[+] comments collapsed" openMessage="[-]">
       <for|nested| of=comment.comments>
         <comment comment=nested/>
       </for>
-    </ul>
+    </toggle>
   </if>
 </li>
