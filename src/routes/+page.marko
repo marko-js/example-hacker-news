@@ -1,12 +1,12 @@
-server import { getStories, type StoryType } from "#src/api";
+import { getStories, type StoryType } from "#src/api";
 
-<const/{ searchParams }=$global.url>
-<const/stories=(searchParams.get("stories") as StoryType | undefined) || "top">
-<const/page=+(searchParams.get("page") || 1)>
+$ const { searchParams } = $global.url;
+$ const stories = (searchParams.get("stories") as StoryType | undefined) || "top"
+$ const page = +(searchParams.get("page") ?? 1)
 
 <div class="news-view">
   <div class="news-list-nav">
-    <if=(page > 1)>
+    <if(page > 1)>
       <a
         class="page-link"
         aria-label="Previous Page"
@@ -33,10 +33,12 @@ server import { getStories, type StoryType } from "#src/api";
   </div>
   <main class="news-list">
     <ul>
-      <await|storyList|=getStories(stories, page)>
-        <for|story| of=storyList>
-          <story story=story/>
-        </for>
+      <await(getStories(stories, page))>
+        <@then|storyList|>
+          <for|story| of=storyList>
+            <story story=story/>
+          </for>
+        </@then>
       </await>
     </ul>
   </main>

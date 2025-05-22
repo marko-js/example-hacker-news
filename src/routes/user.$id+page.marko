@@ -1,22 +1,24 @@
-server import { getUser } from "#src/api";
+import { getUser, type User } from "#src/api";
 
-<const/userId = $global.params.id>
+$ const userId = $global.params.id;
 <div class="user-view">
   <h1>User: ${userId}</h1>
-  <await|user|=getUser(userId)>
-    <ul class="meta">
-      <li>
-        <span class="label">Created: </span>
-         ${user.created}
-      </li>
-      <li>
-        <span class="label">Karma: </span>
-         ${user.karma}
-      </li>
-      <if=user.about>
-        <li class="about">$!{user.about}</li>
-      </if>
-    </ul>
+  <await(getUser(userId))>
+    <@then|user|>
+      <ul class="meta">
+        <li>
+          <span class="label">Created: </span>
+          ${user.created}
+        </li>
+        <li>
+          <span class="label">Karma: </span>
+          ${user.karma}
+        </li>
+        <if(user.about)>
+          <li class="about">$!{user.about}</li>
+        </if>
+      </ul>
+    </@then>
   </await>
   <p class="links">
     <a href=`https://news.ycombinator.com/submitted?id=${userId}`>
