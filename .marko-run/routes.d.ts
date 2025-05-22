@@ -5,11 +5,9 @@
 
 import { NotHandled, NotMatched, GetPaths, PostPaths, GetablePath, GetableHref, PostablePath, PostableHref, Platform } from "@marko/run/namespace";
 import type * as Run from "@marko/run";
-import type { NetlifyFunctionsPlatformInfo } from '@marko/run-adapter-netlify';
+
 
 declare module "@marko/run" {
-	interface Platform extends NetlifyFunctionsPlatformInfo {}
-
 	interface AppData extends Run.DefineApp<{
 		routes: {
 			"/": Routes["/"];

@@ -8,8 +8,6 @@
   },
   "devDependencies": {
     "@marko/run": "^0.6.6",
-    "@marko/run-adapter-netlify": "^2.0.1",
-    "netlify-cli": "^20.0.2",
     "terser": "^5.39.0"
   },
   "private": true,
