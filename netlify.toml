@@ -1,4 +1,0 @@
-[build]
-  command = "marko-run build"
-  publish = "dist/public"
-  functions = "dist"
