@@ -66,12 +66,15 @@ export function getStories(type: StoryType, page: number) {
 }
 
 async function get<T>(href: string | URL | Request) {
-  const res = await fetch(href, {
-    headers: {
-      "Content-Type": "application/json",
-      Accept: "application/json",
-    },
-  });
+  const [res] = await Promise.all([
+    fetch(href, {
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+    }),
+    new Promise((resolve) => setTimeout(resolve, 1000)),
+  ]);
 
   return res.json() as T;
 }
