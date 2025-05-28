@@ -3,7 +3,6 @@ export interface Input {
   comment: Comment;
 }
 
-
 $ const { comment } = input;
 
 <li class="comment">
@@ -19,7 +18,7 @@ $ const { comment } = input;
   </div>
 
   <if(comment.comments.length)>
-    <toggle closedMessage="[+] comments collapsed" openMessage="[-]">
+    <toggle>
       <for|nested| of=comment.comments>
         <comment comment=nested/>
       </for>
