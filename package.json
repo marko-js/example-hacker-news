@@ -4,13 +4,12 @@
   "version": "1.0.0",
   "type": "module",
   "dependencies": {
-    "marko": "^6.0.11"
+    "marko": "^6.0.62"
   },
   "devDependencies": {
-    "@marko/run": "^0.6.6",
-    "@marko/run-adapter-netlify": "^2.0.1",
-    "netlify-cli": "^20.0.2",
-    "terser": "^5.39.0"
+    "@marko/run": "^0.8.0",
+    "@marko/run-adapter-netlify": "^3.0.1",
+    "netlify-cli": "^23.5.0"
   },
   "private": true,
   "imports": {

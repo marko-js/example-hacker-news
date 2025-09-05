@@ -3,21 +3,18 @@ export interface Input {
   comment: Comment;
 }
 
-<const/{ comment }=input>
-
 <li class="comment">
   <div class="by">
-    <a href=`/user/${comment.user}`>
-      ${comment.user}
-    </a>
-    ${` ${comment.time_ago}`}
+    <a href=`/user/${input.comment.user}`>
+      ${input.comment.user}
+    </a> ${input.comment.time_ago}
   </div>
 
   <div class="text">
-    $!{comment.content}
+    $!{input.comment.content}
   </div>
 
-  <if=comment.comments.length>
+  <if=input.comment.comments.length>
     <let/open=true>
 
     <div class=["toggle", { open }]>
@@ -26,7 +23,7 @@ export interface Input {
       </a>
     </div>
     <ul class="comment-children" style={ display: open ? undefined : "none" }>
-      <for|nested| of=comment.comments>
+      <for|nested| of=input.comment.comments>
         <comment comment=nested/>
       </for>
     </ul>
